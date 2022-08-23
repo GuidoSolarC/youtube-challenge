@@ -9,6 +9,10 @@ import VueAxios from 'vue-axios'
 // https://getbootstrap.com
 import "bootstrap"
 import "bootstrap/dist/css/bootstrap.min.css"
+import 'bootstrap-icons/font/bootstrap-icons.css'
+
+// Custom css
+import "./assets/css/main.css"
 
 Vue.config.productionTip = false
 

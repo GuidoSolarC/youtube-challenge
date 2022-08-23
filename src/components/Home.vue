@@ -1,26 +1,38 @@
 <template>
-  <section class="container">
-    <div class="row justify-content-center">
-        <div class="col-12 col-lg-6">          
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
-            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
-          </div>
-        </div>
-    </div>
-    <GaleriaComponent/>
-    
-    <ModalComponent/>
+  <section class="container-fluid">   
+    <!-- Componente de input url -->
+    <InputComponent  v-on:enviarRespuesta="urlAgregada"/>
+    <!-- Componente con galeria de videos -->
+    <GaleriaComponent :key="keyGaleria"/>
+    <!-- Componente modal con detalle de video -->
+    <ModalComponent :key="keyModal"/>
   </section>
 </template>
 
 <script>
 // Importo los componentes
+import InputComponent from '@/components/Input'
 import GaleriaComponent from '@/components/Galeria'
 import ModalComponent from '@/components/Modal'
 export default {
   name: 'HomeComponent',
+  methods: {
+    // Funcion parent, para reaccionar en base a emit de child
+    urlAgregada: function () {
+      console.log('respuesta')
+      this.keyGaleria += 1
+    }
+  },
+  data () {
+		return {
+        // Key para actualizar galeria
+        keyGaleria: 0,
+        // Key para mostrarl modal
+        keyModal: 1
+		}
+	},
   components: {	
+    InputComponent,
     GaleriaComponent,
     ModalComponent
 	}
