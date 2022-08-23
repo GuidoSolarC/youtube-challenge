@@ -1,7 +1,7 @@
 <template>
   <section class="container-fluid">   
     <!-- Componente de input url -->
-    <InputComponent  v-on:enviarRespuesta="urlAgregada"/>
+    <InputComponent  v-on:urlAgregada="actualizarGaleria"/>
     <!-- Componente con galeria de videos -->
     <GaleriaComponent :key="keyGaleria"/>
     <!-- Componente modal con detalle de video -->
@@ -18,8 +18,8 @@ export default {
   name: 'HomeComponent',
   methods: {
     // Funcion parent, para reaccionar en base a emit de child
-    urlAgregada: function () {
-      console.log('respuesta')
+    actualizarGaleria: function () {
+      // Se "deconstruye" el componente, para una correcta actualizacion
       this.keyGaleria += 1
     }
   },

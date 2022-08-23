@@ -13,24 +13,43 @@
     </div>
 </template>
 <script>
+import { mapState } from 'vuex'
 export default {
-  name: 'InputComponent',
-  methods: {
-        // Metodo para agregar nueva URL
-        agregarURL: function () {
-            this.enviarRespuesta()
-        }, 
+    name: 'InputComponent',
+    methods: {
+        // Metodo para obtener id de video youtube
+        // https://stackoverflow.com/questions/10591547/how-to-get-youtube-video-id-from-url
+        obtenerIdVideo: function (url) {
+            return url.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)
+        },        
+        // Envio respuesta a "home", para que actualice la galeria
         enviarRespuesta: function () {
             this.$emit('urlAgregada');
-        }, 
-	},
-	mounted () {
-	},
-	data () {
-		return {
+        },
+        // Metodo para agregar nueva URL
+        agregarURL: function () {
+            const idVideo = this.obtenerIdVideo(this.urlAgregar)
+            if(idVideo != null) {       
+                this.axios.put(this.apiAWS + 'videos', { 
+                    id: idVideo[1]
+                }).then(() => {
+                }).catch(error => {
+                    console.log(error)
+                })   
+            } else { 
+                console.log("The youtube url is not valid.");
+            }         
+            this.enviarRespuesta()
+        }
+    },
+    data () {
+        return {
             // URL recibida en input
-            urlAgregar: ''
-		}
+            urlAgregar: '',
+        }
+    },
+    computed: {
+        ...mapState(['apiAWS'])
 	}
 }
 </script>

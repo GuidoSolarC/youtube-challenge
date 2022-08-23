@@ -31,6 +31,15 @@
 
 <script>
 export default {
-  name: 'ModalComponent',
+    name: 'ModalComponent',
+    methods: {
+       
+    },
+    mounted () {
+    },
+    data () {
+        return {
+        }
+    }
 }
 </script>
