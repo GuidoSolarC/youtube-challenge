@@ -1,27 +1,21 @@
 <template>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered py-5">
-            <div class="modal-content px-5 py-3">
-                <div class="modal-header border-0">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal-body">
+        <div class="row align-items-center">
+            <div class="thumbnail col-12 col-md-4 p-0 mb-3 mb-md-0 position-relative">
+                <img class="img-fluid" :src="this.obj[0] ? this.obj[0].thumbnail : ''" :alt="this.obj[0] ? this.obj[0].descripcion : ''">
+                <div class="thumbail__overlay position-absolute">
+                    <a :href="this.obj[0] ? urlYoutube+this.obj[0].id : ''" target="blank">Ver video <i class="bi bi-box-arrow-up-right"></i></a>
                 </div>
-                <div class="modal-body">
-                    <div class="row align-items-center">
-                        <div class="col-4">
-                            <img class="img-fluid" src="./../prueba.jpeg" alt="">
-                        </div>
-                        <div class="col-8">
-                            <div class="row">
-                                <div class="col-12">
-                                    <p>Titulo de video</p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <p>Lorem ipsum dolor sitte molestias odio. Delectus tenetur, officia laudantium beatae harum dignissimos nihil. Molestiae, maxime error?</p>
-                                </div>
-                            </div>
-                        </div>
+            </div>
+            <div class="col-12 col-md-8">
+                <div class="row">
+                    <div class="col-12">
+                        <p class="fs-4 fw-semibold">{{ this.obj[0] ? this.obj[0].titulo : '' }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 container__descripcion">
+                        <p class="text-break">{{ this.obj[0] ? this.obj[0].descripcion : '' }}</p>
                     </div>
                 </div>
             </div>
@@ -30,16 +24,17 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
     name: 'ModalComponent',
-    methods: {
-       
-    },
-    mounted () {
-    },
-    data () {
-        return {
+    // Objeto recibido para mostrar en modal
+    props: {
+        obj: {
+            type: Array
         }
-    }
+    },   
+    computed: {
+        ...mapState(['urlYoutube'])
+	}
 }
 </script>

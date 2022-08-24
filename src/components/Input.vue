@@ -17,15 +17,6 @@ import { mapState } from 'vuex'
 export default {
     name: 'InputComponent',
     methods: {
-        // Metodo para obtener id de video youtube
-        // https://stackoverflow.com/questions/10591547/how-to-get-youtube-video-id-from-url
-        obtenerIdVideo: function (url) {
-            return url.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)
-        },        
-        // Envio respuesta a "home", para que actualice la galeria
-        enviarRespuesta: function () {
-            this.$emit('urlAgregada');
-        },
         // Metodo para agregar nueva URL
         agregarURL: function () {
             const idVideo = this.obtenerIdVideo(this.urlAgregar)
@@ -33,14 +24,23 @@ export default {
                 this.axios.put(this.apiAWS + 'videos', { 
                     id: idVideo[1]
                 }).then(() => {
+                    this.enviarRespuesta()
                 }).catch(error => {
                     console.log(error)
                 })   
             } else { 
                 console.log("The youtube url is not valid.");
             }         
-            this.enviarRespuesta()
-        }
+        },
+        // Metodo para obtener id de video youtube
+        // https://stackoverflow.com/questions/10591547/how-to-get-youtube-video-id-from-url
+        obtenerIdVideo: function (url) {
+            return url.match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)
+        },        
+        // Envio respuesta a "home", para que actualice la galeria
+        enviarRespuesta: function () {
+            this.$emit('cambiosGaleria');
+        },
     },
     data () {
         return {

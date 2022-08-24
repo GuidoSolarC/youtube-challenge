@@ -28,7 +28,32 @@
     background: rgba(0,0,0, .8);
     color: #fff;
 }
+.cards__delete:hover{
+    background-color: red;
+}
 /* Modal */
 .modal-dialog{
     max-width: 50rem;
+}
+.container__descripcion{
+    max-height: 10rem;
+    overflow-y: auto;
+}
+.thumbail__overlay{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity:0;
+    background-color: #000;
+    transition: .2s ease;
+}
+.thumbail__overlay a{
+    color: #fff;
+}
+.thumbail__overlay:hover{
+    opacity: .9;
 }

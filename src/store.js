@@ -8,6 +8,7 @@ export default new Vuex.Store({
 	state: {
         apiGoogle: 'https://www.googleapis.com/youtube/v3/videos?id=',
 		keyGoogle: '&key='+process.env.VUE_APP_YOUTUBE_KEY,
-		apiAWS: process.env.VUE_APP_API_AWS
+		apiAWS: process.env.VUE_APP_API_AWS,
+		urlYoutube: 'https://www.youtube.com/watch?v='
 	}
 })
