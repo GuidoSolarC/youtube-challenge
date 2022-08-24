@@ -39,8 +39,8 @@ export default {
         },        
         // Envio respuesta a "home", para que actualice la galeria
         enviarRespuesta: function () {
-            this.$emit('cambiosGaleria');
-        },
+            this.$emit('cambiosGaleria')
+        }
     },
     data () {
         return {

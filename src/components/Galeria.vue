@@ -4,7 +4,7 @@
             <!-- Cards a mostrar -->
             <div v-for="video in arrayVideos" :key="video.id" class="cards__item rounded position-relative col-12 col-md-3 mb-2 mb-md-5">
                 <!-- Icono para eliminar video -->
-                <i class="cards__delete position-absolute bi bi-x d-flex align-self-center" v-on:click="eliminarVideo(video.id)"></i>
+                <i class="cards__delete position-absolute bi bi-x d-flex align-self-center" data-bs-toggle="modal" data-bs-target="#modalEliminar" v-on:click="eliminarVideo(video.id)"></i>
                 <!-- Thumbnail que gatilla modal -->
                 <img class="img-fluid" :src="video.thumbnail" :alt="video.descripcion" data-bs-toggle="modal" data-bs-target="#modalDetalles" v-on:click="mostrarDetalles(video.id)">
             </div>
@@ -45,22 +45,17 @@ export default {
         },
         // Método para eliminar video
         eliminarVideo: function (id) {
-            this.axios.delete(this.apiAWS + 'videos/'+id, { 
-			}).then(() => {        
-                this.cargarGaleria()      
-			}).catch(error => {
-				console.log(error)
-			})           
+            this.$emit('eliminarVideo', id)
         },
         // Metodo para mostrar detalles del video
         mostrarDetalles: function (id) {
             const obj = this.arrayVideos.filter(el => el.id === id)
-            this.$emit('mostrarDetalles', obj);
+            this.$emit('mostrarDetalles', obj)
         }
     },
     mounted () {
         // Una vez desplegado el componente, cargamos galeria
-            this.cargarGaleria()
+        this.cargarGaleria()
     },
     data () {
         return {

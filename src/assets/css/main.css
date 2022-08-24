@@ -57,3 +57,9 @@
 .thumbail__overlay:hover{
     opacity: .9;
 }
+
+/* Modal eliminar */
+.btn--cancelar{
+    color: #0d6efd;
+    border: 1px solid #0d6efd;
+} 
