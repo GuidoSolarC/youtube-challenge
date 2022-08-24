@@ -4,10 +4,10 @@
             <!-- Mobile -->
             <div class="row d-sm-none">
                 <div class="d-grid gap-2">    
-                    <button type="button" class="btn btn-primary " data-bs-dismiss="modal" v-on:click="eliminarVideo()">Eliminar</button>
+                    <button type="button" class="btn btn-primary fw-bold" data-bs-dismiss="modal" v-on:click="eliminarVideo()">Eliminar</button>
                 </div>
                 <div class="d-grid gap-2 mt-4">    
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn--cancelar fw-bold btn-light" data-bs-dismiss="modal">Cancelar</button>
                 </div>
             </div>
             <!-- Desktop -->
