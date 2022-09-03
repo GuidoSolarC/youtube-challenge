@@ -26,8 +26,10 @@
 
 <p>Detalle del video seleccionado</p>
 
-![2mobile](https://user-images.githubusercontent.com/36977397/186484384-d438306b-b407-4caa-b58c-737ed6479b90.png)
-![2desktop](https://user-images.githubusercontent.com/36977397/186484403-aedd6f93-4b75-4574-ae72-ab534a17df54.png)
++ Puedes reproducir el video dentro de la vista del detalle
+
+![image](https://user-images.githubusercontent.com/36977397/188252765-19386103-15e4-42bb-835a-eb1dba6e3e72.png)
+![image](https://user-images.githubusercontent.com/36977397/188252715-b5d32286-3e8e-42c2-a35f-f056adbfde72.png)
 ---
 
 <p>Eliminación del video</p>
@@ -40,3 +42,4 @@
 <p>Se usó "destructuración" de componentes, para una "limpia" actualización de estos</p>
 <p>Se ocupó Bootstrap 5 para la realización de la estructura</p>
 <p>Se ocupó patrón BEM para identificar los elementos de mejor manera </p>
+<p>Se ocupa alertifyJS para mostrar feedback al usuario </p>
