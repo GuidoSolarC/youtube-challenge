@@ -33,7 +33,7 @@
 }
 /* Modal */
 .modal-dialog{
-    max-width: 50rem;
+    max-width: 65rem;
 }
 .container__descripcion{
     max-height: 10rem;
@@ -47,15 +47,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity:0;
     background-color: #000;
     transition: .2s ease;
 }
 .thumbail__overlay a{
     color: #fff;
-}
-.thumbail__overlay:hover{
-    opacity: .9;
 }
 
 /* Modal eliminar */
