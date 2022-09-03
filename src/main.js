@@ -13,10 +13,16 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 
 // Custom css
 import "./assets/css/main.css"
+// https://github.com/anteriovieira/vue-youtube (Wrapper de YoutubeAPI)
+import VueYoutube from 'vue-youtube'
+// https://github.com/sj82516/vue-alertify (Wrapper de alertify)
+import VueAlertify from 'vue-alertify';
 
 Vue.config.productionTip = false
 
 Vue.use(VueAxios, axios)
+Vue.use(VueYoutube)
+Vue.use(VueAlertify)
 
 new Vue({
   store,

@@ -26,6 +26,7 @@ export default {
                     this.procesarURL(element)
                 });
 			}).catch(error => {
+                this.$alertify.error('Ha ocurrido un error');
 				console.log(error)
 			})            
         }, 
@@ -37,9 +38,10 @@ export default {
                     id: response.data.items[0].id, 
                     titulo: response.data.items[0].snippet.title, 
                     descripcion: response.data.items[0].snippet.description,
-                    thumbnail: response.data.items[0].snippet.thumbnails.standard.url
+                    thumbnail: response.data.items[0].snippet.thumbnails.standard ? response.data.items[0].snippet.thumbnails.standard.url : response.data.items[0].snippet.thumbnails.high.url
                 })
 			}).catch(error => {
+                this.$alertify.error('Ha ocurrido un error');
 				console.log(error)
 			})            
         },
@@ -50,7 +52,7 @@ export default {
         // Metodo para mostrar detalles del video
         mostrarDetalles: function (id) {
             const obj = this.arrayVideos.filter(el => el.id === id)
-            this.$emit('mostrarDetalles', obj)
+            this.$emit('mostrarDetalles', obj, true)
         }
     },
     mounted () {

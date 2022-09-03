@@ -11,7 +11,7 @@
       <div class="modal-dialog modal-dialog-centered py-5">
           <div class="modal-content p-3">
               <div class="modal-header border-0">
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" v-on:click="actualizarModal(null, false)"></button>
               </div>
               <ModalComponent :key="keyModal" :obj="objVideo"/>      
           </div>
@@ -48,16 +48,16 @@ export default {
       this.keyGaleria += 1
     },
     // Función para "deconstruir" componente del modal, y entregar parámetros
-    actualizarModal: function (value) {
-      // Pasamos el objeto, obtenido en la galeria
-      this.objVideo = value
-      this.keyModal +=1
+    actualizarModal: function (value, bool) {
+        // Pasamos el objeto, obtenido en la galeria
+        this.objVideo = bool ? value : [{}]
+        this.keyModal +=1
     },
     // Mostrar modal eliminacion
     eliminarVideo: function(value){
       this.idVideoEliminar = value
       this.keyModalEliminar +=1
-    }
+    },
   },
   data () {
 		return {

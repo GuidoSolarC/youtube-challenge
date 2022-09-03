@@ -36,10 +36,11 @@ export default {
         eliminarVideo: function () {
             this.axios.delete(this.apiAWS + 'videos/'+this.idEliminar, { 
 			}).then(() => {        
-                this.$emit('videoEliminado') 
-                console.log('emit')
+                this.$emit('videoEliminado')                 
+                this.$alertify.success('Video eliminado');
 			}).catch(error => {
 				console.log(error)
+                this.$alertify.error('Ha ocurrido un error');
 			})           
         }
     }, 
