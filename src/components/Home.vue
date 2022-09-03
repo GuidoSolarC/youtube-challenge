@@ -7,7 +7,7 @@
     <GaleriaComponent :key="keyGaleria" v-on:mostrarDetalles="actualizarModal" v-on:eliminarVideo="eliminarVideo"/>
 
     <!-- Componente modal con detalle de video -->
-    <div class="modal fade" id="modalDetalles" tabindex="-1" aria-labelledby="modalDetallesLabel" aria-hidden="true">    
+    <div class="modal fade" id="modalDetalles" tabindex="-1" aria-labelledby="modalDetallesLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">    
       <div class="modal-dialog modal-dialog-centered py-5">
           <div class="modal-content p-3">
               <div class="modal-header border-0">
